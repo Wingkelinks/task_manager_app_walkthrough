@@ -4,4 +4,27 @@ task.task_name }}<br />
 {{ task.task_description }}<br />
 {{ task.is_urgent }}<br />
 {{ task.due_date }}<br />
-{% endfor %} {% endblock %}
+{% endfor %}
+
+<ul class="collapsible">
+	<li>
+		<div class="collapsible-header white-text pink accent-4 text-shadow">
+			<i class="fas fa-caret-down"></i>First
+		</div>
+		<div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+	</li>
+	<li>
+		<div class="collapsible-header white-text pink accent-4 text-shadow">
+			<i class="fas fa-caret-down"></i>First
+		</div>
+		<div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+	</li>
+	<li>
+		<div class="collapsible-header white-text pink accent-4 text-shadow">
+			<i class="fas fa-caret-down"></i>First
+		</div>
+		<div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+	</li>
+</ul>
+
+{% endblock %}

@@ -1,3 +1,5 @@
 $(document).ready(function () {
-	$(".sidenav").sidenav({ edge: "right" });
+	$(".sidenav").sidenav({ edge: "right" }); // Materialize sidenav init
+
+	$(".collapsible").collapsible(); // Materialize collapsible init
 });
