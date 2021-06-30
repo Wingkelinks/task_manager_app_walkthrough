@@ -5,3 +5,8 @@
 .flashes h4 {
 	line-height: 2;
 }
+
+/* nth-child not working */
+ul.dropdown-content.select-dropdown li span:not(:nth-last-child(5)) {
+	color: #e040fb;
+}
