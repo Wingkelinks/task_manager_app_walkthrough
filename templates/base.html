@@ -25,6 +25,7 @@
 		{% block styles %} {% endblock %}
 		<title>Task Manager</title>
 	</head>
+
 	<body>
 		<header>
 			<!-- top navbar -->
@@ -39,6 +40,7 @@
 					<ul class="right hide-on-med-and-down">
 						<li><a href="{{ url_for('get_tasks') }}">Home</a></li>
 
+						<!-- IF USER CURRENTLY HAS SESSION COOKIE, DISPLAY 4 LINKS -->
 						{% if session.user %}
 
 						<li>
@@ -47,9 +49,18 @@
 							>
 						</li>
 						<li><a href="{{ url_for('add_task') }}">New Task</a></li>
-						<li><a href="#">Manage Categories</a></li>
+
+						<!-- 3RD LINK WILL ONLY BE DISPLAYED IF SESSION USER IS ALSO ADMIN -->
+						{% if session.user|lower == "admin"|lower %}
+						<li>
+							<a href="{{ url_for('get_categories') }}">Manage Categories</a>
+						</li>
+
+						{% endif %}
+
 						<li><a href="{{ url_for('logout') }}">Log Out</a></li>
 
+						<!-- OTHERWISE IF USER IS NOT CURRENTLY LOGGED IN THEN CAN ONLY LOGIN OR REGISTER -->
 						{% else %}
 
 						<li><a href="{{ url_for('login') }}">Log In</a></li>
@@ -68,6 +79,7 @@
 				</li>
 				<li><a href="{{ url_for('get_tasks') }}">Home</a></li>
 
+				<!-- IF USER CURRENTLY HAS SESSION COOKIE, DISPLAY 4 LINKS -->
 				{% if session.user %}
 
 				<li>
@@ -76,9 +88,17 @@
 					>
 				</li>
 				<li><a href="{{ url_for('add_task') }}">New Task</a></li>
-				<li><a href="#">Manage Categories</a></li>
+
+				<!-- 3RD LINK WILL ONLY BE DISPLAYED IF SESSION USER IS ALSO ADMIN -->
+				{% if session.user|lower == "admin"|lower %}
+
+				<li><a href="{{ url_for('get_categories') }}">Manage Categories</a></li>
+
+				{% endif %}
+
 				<li><a href="{{ url_for('logout') }}">Log Out</a></li>
 
+				<!-- OTHERWISE IF USER IS NOT CURRENTLY LOGGED IN THEN CAN ONLY LOGIN OR REGISTER -->
 				{% else %}
 
 				<li><a href="{{ url_for('login') }}">Log In</a></li>
